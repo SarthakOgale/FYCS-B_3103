@@ -71,4 +71,113 @@ def add_numbers(num1, num2):
          print('Sum: ',sum)
 
 To Find the factorial of from 1 to 10
-    
+    a)  def myFun():  
+print(" Welcome")  
+myFun() # call to print the statement  
+
+Output: Welcome
+b) def evenOdd(X):
+ if (x % 2 == 0):
+        print("even")
+    else:
+        print("odd")
+c)
+def add_numbers(num1, num2):
+         sum = num1 + num2
+         print('Sum: ',sum)
+d)To Find the factorial of from 1 to 10
+
+def fact(n):
+    p=1
+    while n>=1:
+        p*=n
+        n-=1
+    return p
+for i in range(1,11):
+    print("factorial of {} is {}".format(i,fact(i)))
+Output: 
+factorial of 1 is 1
+factorial of 2 is 2
+factorial of 3 is 6
+factorial of 4 is 24
+factorial of 5 is 120
+factorial of 6 is 720
+factorial of 7 is 5040
+factorial of 8 is 40320
+factorial of 9 is 362880
+factorial of 10 is 3628800
+
+
+Practical 3:
+Aim: write a python program to demonstrate different types of function argument.
+a) Keyword arguement
+Input: 
+def information(name,age):
+print("name",name)
+print("age",age)
+return
+information(age=32,name="ABC")
+Outout:
+name=ABC
+age=32
+b) default arguement
+Input: 
+def information(name,age=55):
+    print("name:",name)
+    print("age",age)
+    return
+information(name="ABC")
+Output: 
+name: ABC
+age 55
+c) Arbitrary Arguement
+Input: 
+def greet(*names):
+    for name in names:
+        print("Good morning",name)
+greet("Rahul","Atharv","ayush")
+Output: 
+Good morning Rahul
+Good morning Atharv
+Good morning ayush
+
+Practical 6:
+Aim: Write a python program to implement a list in python for suitable problem.Demonstrate various operations on it.
+
+INPUT:
+
+list1=['red','green','blue','black','white']
+list2=[14,12,13]
+print("Element of list1:",list1)
+print("Element of list2:",list2)
+print("length of list 1 is:",len(list1))
+print("length of list 2 is:",len(list2))
+list1.insert(2,'pink')
+print(list1)
+list1.append('yellow')
+print("list after append",list1)
+list2.sort()
+print("list 2 after sorting",list2)
+list1.remove('blue')
+print("list 1 after removing an element",list1)
+print("slicing",list1[:4])
+print(list1[2:4])
+list1.reverse()
+print("Reversed list is:", list1)
+list1.extend(list2)
+print("extended list is:",list1)
+ OUTPUT
+Element of list1: ['red', 'green', 'blue', 'black', 'white']
+Element of list2: [14, 12, 13]
+length of list 1 is: 5
+length of list 2 is: 3
+['red', 'green', 'pink', 'blue', 'black', 'white']
+list after append ['red', 'green', 'pink', 'blue', 'black', 'white', 'yellow']
+list 2 after sorting [12, 13, 14]
+list 1 after removing an element ['red', 'green', 'pink', 'black', 'white', 'yellow']
+slicing ['red', 'green', 'pink', 'black']
+['pink', 'black']
+Reversed list is: ['yellow', 'white', 'black', 'pink', 'green', 'red']
+extended list is: ['yellow', 'white', 'black', 'pink', 'green', 'red', 12, 13, 14]
+
+
