@@ -51,3 +51,20 @@ Enter Choice(1-4): 4
 Enter A:6
 Enter B:78
 Quotient = 0.07692307692307693
+
+AIM: Write a program in python to define and call functions for suitable problems.
+def myFun():  
+print(" Welcome")  
+myFun() # call to print the statement  
+
+Output: Welcome
+
+def evenOdd(x):
+    if (x % 2 == 0):
+        print("even")
+    else:
+        print("odd")
+
+def add_numbers(num1, num2):
+         sum = num1 + num2
+         print('Sum: ',sum)
