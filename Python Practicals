@@ -1,3 +1,4 @@
+
 python codes.
 Input:
 letter=input("Enter any alphabet: ")
@@ -68,3 +69,6 @@ def evenOdd(x):
 def add_numbers(num1, num2):
          sum = num1 + num2
          print('Sum: ',sum)
+
+To Find the factorial of from 1 to 10
+    
