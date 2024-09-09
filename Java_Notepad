@@ -1,0 +1,113 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
+public class SimpleNotepad {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Simple Notepad");
+        JTextArea textArea = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        frame.add(scrollPane, BorderLayout.CENTER);
+        
+        JMenuBar menuBar = new JMenuBar();
+        JMenu fileMenu = new JMenu("File");
+        JMenuItem openItem = new JMenuItem("Open");
+        JMenuItem saveItem = new JMenuItem("Save");
+        JMenuItem exitItem = new JMenuItem("Exit");
+
+        fileMenu.add(openItem);
+        fileMenu.add(saveItem);
+        fileMenu.add(exitItem);
+        menuBar.add(fileMenu);
+        frame.setJMenuBar(menuBar);
+
+        openItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(frame);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                        textArea.read(reader, null);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        saveItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showSaveDialog(frame);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                        textArea.write(writer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        exitItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        frame.setSize(600, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+}
+
+Visualization of the SimpleNotepad Code
+This code creates a basic notepad application in Java. Here's a breakdown of the visual flow:
+
+1. Setting Up the Window:
+
+The program starts by importing necessary libraries for building the user interface (UI).
+It creates a JFrame object named frame with the title "Simple Notepad".
+Inside the frame, a JTextArea object named textArea is created. This is the main area where you can type your notes.
+A JScrollPane object named scrollPane is created and wraps the textArea. This allows scrolling through longer content.
+The scrollPane is added to the center of the frame using the BorderLayout.
+2. Creating the Menu Bar:
+
+A JMenuBar object named menuBar is created, which will hold the menus for the application.
+A JMenu named fileMenu is created and labeled "File". This will hold options related to file management.
+Three JMenuItem objects are created for "Open", "Save", and "Exit" functionalities. These represent clickable options within the "File" menu.
+The menu items are added sequentially to the fileMenu.
+The fileMenu is then added to the menuBar.
+Finally, the menuBar is set to the frame using the setJMenuBar method.
+3. Adding Functionality to Menu Items:
+
+Each JMenuItem object (Open, Save, Exit) has an ActionListener attached to it. This listener defines what happens when the user clicks on the menu item.
+
+Open:
+
+A JFileChooser object is created to allow users to select a file to open.
+The showOpenDialog method is used to display the file selection dialog.
+If the user clicks "Open" (JFileChooser.APPROVE_OPTION), the selected file is retrieved.
+A BufferedReader object is created to read the contents of the chosen file.
+The read method of textArea is used to read the file content into the text area.
+Any errors during reading are caught using a try-catch block.
+Save:
+
+Similar to Open, a JFileChooser object is created to allow users to choose a location to save the file.
+The showSaveDialog method shows the file saving dialog.
+If the user clicks "Save" (JFileChooser.APPROVE_OPTION), the selected file is retrieved.
+A BufferedWriter object is created to write the content of the textArea to the chosen file.
+The write method of textArea is used to write the text content to the file.
+Any errors during writing are caught using a try-catch block.
+Exit:
+
+Clicking "Exit" triggers the System.exit(0) method, which closes the application.
+4. Finalizing the Window:
+
+The size of the frame is set to 600 pixels wide and 400 pixels high.
+The setDefaultCloseOperation method is used to define what happens when the user tries to close the window by clicking the "X" button. Here, it's set to JFrame.EXIT_ON_CLOSE, which will close the application.
+Finally, the frame is set to be visible by calling the setVisible(true) method. This displays the notepad window on the screen.
+This code creates a simple user interface with a text area, a menu bar for file operations, and functionality to open, save, and exit the application. This code has been executed in Its base manner in Java using Java Development kit.
